@@ -12,5 +12,5 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: "1.20"
-      - run: curl -o baf.tar.gz -L https://sbeams.systemsbiology.net/sample_data/Proteomics/pxproteome.tar.gz
+      - run: curl -o baf.tar.gz -sL https://sbeams.systemsbiology.net/sample_data/Proteomics/pxproteome.tar.gz
       - run: go run main.go

@@ -20,8 +20,7 @@ func main() {
 
 	c := client.Container().From("alpine").
 		WithExec([]string{"apk", "add", "tar"}).
-		WithFile("/baf.tar.gz", baf).
-		WithExec([]string{"tar", "xfv", "/baf.tar.gz"})
+		WithFile("/baf.tar.gz", baf)
 
 	_, err = c.Directory("/").File("baf.tar.gz").Export(ctx, "./exported.tar.gz")
 	if err != nil {
