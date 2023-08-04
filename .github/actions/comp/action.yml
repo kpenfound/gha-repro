@@ -41,4 +41,5 @@ runs:
   using: 'composite'
   steps:
     - uses: actions/setup-node@v3
-    - run: node -v
+    - run: echo 'i just installed my own version of node!'
+      shell: bash
