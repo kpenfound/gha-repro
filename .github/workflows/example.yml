@@ -1,0 +1,17 @@
+name: example
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  repro:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "12"
+      - run: node -v
+      - uses: ./.github/actions/comp
+      - run: node -v

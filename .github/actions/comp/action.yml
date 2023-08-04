@@ -1,0 +1,44 @@
+name: 'Neon Database Create Branch Action'
+author: 'Neon Database'
+description: 'Creates a new Neon Postgres branch based a parent branch. If the branch already exists it will return the branch details'
+branding:
+  icon: 'box'
+  color: 'green'
+
+inputs:
+  project_id:
+    required: true
+    type: string
+  branch_name:
+    required: false
+    type: string
+  api_key:
+    required: true
+  username:
+    required: true
+  database:
+    type: string
+    default: neondb
+  prisma:
+    type: boolean
+    default: false
+
+outputs:
+  db_url:
+    description: 'New branch DATABASE_URL'
+    value: ${{ steps.create-branch.outputs.db_url }}
+  db_url_with_pooler:
+    description: 'New branch DATABASE_URL'
+    value: ${{ steps.create-branch.outputs.db_url_with_pooler }}
+  host:
+    description: 'New branch host'
+    value: ${{ steps.create-branch.outputs.host }}
+  branch_id:
+    description: 'New branch id'
+    value: ${{ steps.create-branch.outputs.branch_id }}
+
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/setup-node@v3
+    - run: node -v
