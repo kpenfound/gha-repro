@@ -5,10 +5,10 @@ on:
   pull_request:
 
 jobs:
-  strategy:
-        matrix:
-          version: [10, 12, 14]
   repro:
+    strategy:
+      matrix:
+        version: [10, 12, 14]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
