@@ -15,7 +15,8 @@ jobs:
       - name: set env
         shell: bash
         run: |
-          echo "tag=${{ matrix.version }}" >> $GITHUB_ENV
+          tag="${{ matrix.version }}"
+          echo "tag=$tag" >> $GITHUB_ENV
           echo "The tag to update is $tag"
       - name: read env
         shell: bash
